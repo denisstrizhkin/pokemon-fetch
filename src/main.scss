@@ -1,4 +1,7 @@
 $color: #fff;
+$grey-1: #2a2438;
+$grey-2: #352f44;
+$grey-3: #5c5470;
 
 *,*::before,*::after {
   box-sizing: border-box;
@@ -7,4 +10,90 @@ $color: #fff;
 body,ul,h1,h2,h3,p {
   padding: 0;
   margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.theme-dark {
+  --bckg-1: #{$grey-1};
+  --bckg-2: #{$grey-2};
+  --bckg-3: #{$grey-3};
+  --clr-1: #fff;
+  --clr-2: #fff;
+}
+
+.theme-light {
+  --bckg-1: #ababab;
+  --bckg-2: #ddd;
+  --bckg-3: #eee;
+  --clr-1: #{$grey-1};
+}
+
+body {
+  background: var(--bckg-2);
+  color: var(--clr-1);
+}
+
+.App {
+  min-height: 100vh;
+  padding-bottom: 3em;
+}
+
+.header {
+  background: var(--bckg-1);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  padding-block: 1.5em;
+
+  #theme-toggle {
+    position: absolute;
+    right: 2em;
+    top: 0;
+  }
+}
+
+.main {
+  padding-top: 6.5em;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.pokemon-card {
+  width: 175px;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bckg-3);
+  margin-bottom: 15px;
+  margin-inline: 7.5px;
+  border-radius: 10px;
+  padding: 1em;
+
+  &__name {
+
+  }
+
+  &__type-list {
+    display: flex;
+  }
 }

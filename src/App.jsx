@@ -1,25 +1,29 @@
-import {useState, useEffect} from 'react';
-import PokemonCard from './components/PokemonCard.jsx';
+import CardsList from './components/CardsList';
 
 const App = () => {
-  const [pokemonList, setPokemonList] = useState(null);
+  const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
+  const bodyEl = document.querySelector('body');
 
-  useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-        .then((response) => response.json())
-        .then((responseJSON) => {
-          const arr = [];
-          for (let i = 0; i < responseJSON.results.length; i++) {
-            arr.push(<PokemonCard key={i} url={responseJSON.results[i].url} />);
-          }
-          setPokemonList(arr);
-        })
-        .catch(console.log('error'));
-  }, []);
+  if (isDarkTheme.matches == true) {
+    bodyEl.classList.add('theme-dark');
+  } else {
+    bodyEl.classList.add('theme-light');
+  }
+
+  const toggleTheme = () => {
+    bodyEl.classList.toggle('theme-light');
+    bodyEl.classList.toggle('theme-dark');
+  };
 
   return (
     <div className="App">
-      {pokemonList}
+      <header className="header">
+        <div className="container">
+          <h1 className="header__title">PokeFetch</h1>
+          <button id="theme-toggle" onClick={toggleTheme}>change theme</button>
+        </div>
+      </header>
+      <CardsList />
     </div>
   );
 };
