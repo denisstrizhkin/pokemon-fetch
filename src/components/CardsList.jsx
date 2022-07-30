@@ -19,13 +19,11 @@ const CardsList = () => {
   }, []);
 
   return (
-    <main className="main">
-      <div className="container">
-        <div className="cards-list">
-          {cardsList}
-        </div>
+    <div className="container">
+      <div className="cards-list">
+        {cardsList}
       </div>
-    </main>
+    </div>
   );
 };
 

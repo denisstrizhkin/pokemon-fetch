@@ -1,7 +1,20 @@
-$color: #fff;
 $grey-1: #2a2438;
 $grey-2: #352f44;
 $grey-3: #5c5470;
+$white-1: #ccc;
+$white-2: #ddd;
+$white-3: #eee;
+
+.grass-type { background: #78c850; }
+.water-type { background: #6890f0; }
+.poison-type { background: #a040a0; }
+.fire-type { background: #f08030; }
+.flying-type { background: #a890f0; }
+.electric-type { background: #f8d030; }
+.bug-type { background: #a8b820; }
+.normal-type { background: #aaab7a; }
+.rock-type { background: #b8a038; }
+.ground-type { background: #e0c068; }
 
 *,*::before,*::after {
   box-sizing: border-box;
@@ -24,20 +37,39 @@ img {
   --bckg-1: #{$grey-1};
   --bckg-2: #{$grey-2};
   --bckg-3: #{$grey-3};
-  --clr-1: #fff;
-  --clr-2: #fff;
+  --clr-1: #{$white-3};
+  --clr-2: #eee;
+  --shadow: rgba(128,128,128,0.3);
+
+  #toggle-light {
+    display: none;
+  }
+
+  #toggle-dark {
+    display: inline;
+  }
 }
 
 .theme-light {
-  --bckg-1: #ababab;
-  --bckg-2: #ddd;
-  --bckg-3: #eee;
+  --bckg-1: #{$white-1};
+  --bckg-2: #{$white-2};
+  --bckg-3: #{$white-3};
   --clr-1: #{$grey-1};
+  --shadow: rgba(0,0,0,0.3);
+
+  #toggle-light {
+    display: inline;
+  }
+
+  #toggle-dark {
+    display: none;
+  }
 }
 
 body {
   background: var(--bckg-2);
   color: var(--clr-1);
+  font: 400 1rem 'Kanit', sans-serif;
 }
 
 .App {
@@ -51,12 +83,27 @@ body {
   width: 100%;
   z-index: 1;
   text-align: center;
-  padding-block: 1.5em;
+  padding-block: 1.25em;
+  line-height: 1.0;
+  box-shadow: 0 10px 20px var(--shadow);
 
   #theme-toggle {
     position: absolute;
     right: 2em;
-    top: 0;
+    top: 0.3em;
+    background: rgba(0,0,0,0);
+    color: var(--clr-1);
+    border: none;
+
+    svg {
+      width: 2em;
+      height: 2em;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 2.25rem;
   }
 }
 
@@ -90,10 +137,26 @@ body {
   padding: 1em;
 
   &__name {
-
+    font-weight: 400;;
   }
 
   &__type-list {
     display: flex;
+  }
+
+  &__type {
+    padding: 0.3em;
+    border-radius: 100em;
+    display: flex;
+    color: $white-3;
+    
+    svg {
+      width: 1.25em;
+      height: 1.25em;
+    }
+  }
+
+  &__type + &__type {
+    margin-left: 0.25em;
   }
 }

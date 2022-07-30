@@ -1,4 +1,5 @@
 import CardsList from './components/CardsList';
+import {IoSunnySharp, IoMoon} from 'react-icons/io5';
 
 const App = () => {
   const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
@@ -20,10 +21,14 @@ const App = () => {
       <header className="header">
         <div className="container">
           <h1 className="header__title">PokeFetch</h1>
-          <button id="theme-toggle" onClick={toggleTheme}>change theme</button>
+          <button id="theme-toggle" onClick={toggleTheme}>
+            <IoSunnySharp id="toggle-light"/><IoMoon id="toggle-dark"/>
+          </button>
         </div>
       </header>
-      <CardsList />
+      <main className="main">
+        <CardsList />
+      </main>
     </div>
   );
 };

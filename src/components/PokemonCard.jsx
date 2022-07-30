@@ -8,16 +8,16 @@ const PokemonCard = ({url}) => {
   const [pokemonCard, setPokemonCard] = useState(null);
 
   const getTypeDic = {
-    fire: <GiSmallFire className="fire-type"/>,
-    grass: <GiHighGrass className="grass-type"/>,
-    water: <GiWaterDrop className="water-type"/>,
-    poison: <GiBubbles className="poison-type"/>,
-    flying: <GiCurlyWing className="flying-type"/>,
-    bug: <GiLongAntennaeBug className="bug-type"/>,
-    normal: <GiAlliedStar className="normal-type"/>,
-    electric: <GiElectric className="electric-type"/>,
-    rock: <GiMountaintop className="rock-type"/>,
-    ground: <GiUndergroundCave className="ground-type"/>,
+    fire: <GiSmallFire />,
+    grass: <GiHighGrass />,
+    water: <GiWaterDrop />,
+    poison: <GiBubbles />,
+    flying: <GiCurlyWing />,
+    bug: <GiLongAntennaeBug />,
+    normal: <GiAlliedStar />,
+    electric: <GiElectric />,
+    rock: <GiMountaintop />,
+    ground: <GiUndergroundCave />,
   };
 
   useEffect(() => {
@@ -39,7 +39,8 @@ const PokemonCard = ({url}) => {
                   }
                   return (
                     <li
-                      className={className + '__type'}
+                      className={className + '__type ' +
+                                 item.type.name + '-type'}
                       key={item.slot}
                     >{typeIcon}</li>
                   );
